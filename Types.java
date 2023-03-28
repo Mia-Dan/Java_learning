@@ -17,8 +17,8 @@ public class Types{
         double paperHeight = 11;
         System.out.println("Paper size in cms 0: "
             + paperWidth * CM_PER_INCH + " by " + paperHeight * CM_PER_INCH);
-        //System.out.println("Paper size in cms 1: "
-            //+ paperWidth * CM_PER_INCH1 + " by " + paperHeight * CM_PER_INCH1);
 
+        // the res uses CM_PER_INCH = 2.54
+        // overwrite
     }
 }
