@@ -20,5 +20,18 @@ public class Types{
 
         // the res uses CM_PER_INCH = 2.54
         // overwrite
+
+        double cm_per_inch1 = func1();
+        System.out.println("Paper size in cms func1: "
+            + paperWidth * cm_per_inch1 + " by " + paperHeight * cm_per_inch1);
+
+        // the res uses CM_PER_INCH = 2
+        // func1() uses class constant
+    }
+
+    public static double func1(){
+        // to figure out which constant CM_PER_INCH would be use
+
+        return CM_PER_INCH;
     }
 }
