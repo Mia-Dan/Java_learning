@@ -1,17 +1,17 @@
 // Comments
 
-// 1. one public class per file.
+// 1. in each file, 0 or 1 public class
 // 2. file name == public class name
 //  e.g., this file is, Hello.java
 
 // `Hello` is a public class
 // compile by `javac Hello.java`
 // run by `java Hello`
-public class Hello{
+ class Helsadlo{
 
     public static void main(String[] args){
 
-        System.out.println("This is public class `Hello`");
+        System.out.println("This is public class `Hello111`");
     }
 
 }
