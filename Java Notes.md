@@ -77,6 +77,62 @@ Through the Java VM, the same application is capable of running on multiple plat
 
 
 
+#### 我们编写的代码 source code
+
+> Source code end with `.java`.
+
+
+
+*Everything* in a Java program must be inside a *class*.
+
+* 0 or 1 `public` class in each file
+
+* n class (we don't need `private` modifiers) in each file       // n could be 0, 1, 2, ...
+
+
+
+Each class could have its own `main` function (public static void main(String[] args)).
+
+
+
+Filename constrants:
+
+* if there's 1 public class, 
+
+​		file name == public class name + .java	
+
+​		e.g., `public class Hello{}` should have  `Hello.java` as filename
+
+* if there's 0 public class,
+
+  no constrant on file name
+
+
+
+Each statement ends with `;`
+
+
+
+source code -- compiler --> bytecodes -- load into JVM and run on (different JVM on) different machines
+
+#### 生成的字节码 bytecodes
+
+> Bytecodes end with `.class`. It's the machine language of the Java Virtual Machine
+
+由`javac`生成，并由`java`命令加载到JVM中运行
+
+
+
+1 `.java` file -> n `.class` files, depending on #classes in our source file
+
+
+
+To run the `main` method (if any) in a class, run that class.
+
+e.g., `java Cat` run the main method in class `Cat`
+
+
+
 #### The Java Platform
 
 A *platform* is the hardware or software environment in which a program runs. We've already mentioned some of the most popular platforms like Microsoft Windows, Linux, and Mac OS. **Most platforms can be described as a combination of the operating system and underlying hardware. The Java platform differs from most other platforms in that it's a software-only platform that runs on top of other hardware-based platforms.**
