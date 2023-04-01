@@ -155,3 +155,52 @@ The API and Java Virtual Machine insulate the program from the underlying hardwa
 As a platform-independent environment, the Java platform can be a bit slower than native code. However, advances in compiler and virtual machine technologies are bringing performance close to that of native code without threatening portability.
 
 The terms"Java Virtual Machine" and "JVM" mean a Virtual Machine for the Java platform.
+
+
+
+
+
+## 基础
+
+#### Java 源码 src
+
+在哪里：
+
+进入jdk目录（可以用`which java`找到jdk安装路径），找到`src.zip`，解压即可
+
+
+
+源码中有详细的javadoc注释
+
+
+
+#### 注释 Comment
+
+* 单行注释 // ...
+* 多行注释 /* ... */
+* Javadoc注释 /** ... */
+
+> 注：多行注释，Javadoc注释 不可嵌套。
+>
+> 这一点在想要注释掉代码的时候需要特别注意：被注释的代码中如果已含有`*/`就会出问题
+
+
+
+Javadoc 能根据注释自动生成一系列网页（用户手册）
+
+在代码中，使用如下记号：
+
+```java
+/**
+  * 需要注意的是，
+  * 注释不允许嵌套 * /（这里为说明，在中间加了空格，以防compiler将它当作结束）
+*/
+```
+
+在Terminal，使用如下指令生成文档网页：
+
+```shell
+javadoc -d <dest_dir_for_HTML> <source file>
+# 比如 javadoc -d ~/Desktop/JavadocForThisFile Comment.java
+# 不需要手工创建JavadocForThisFile，输入dirname后他会帮我创建
+```
