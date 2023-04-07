@@ -23,6 +23,22 @@ https://docs.oracle.com/javase/tutorial/index.html
 
 
 
+## 特点
+
+1. 面向对象OOP
+
+2. robust：强类型机制，异常处理，垃圾自动收集等
+
+3. 跨平台性：即，编译好的.class文件可以在不同机器上运行
+
+4. 解释型：即，编译好的代码不能直接在机器上运行，而是需要 解释器
+
+   > 像Javascript也是 解释型语言。
+   >
+   > 而 编译型语言 则在 编译 后，能直接在机器上运行，如C/C++
+
+
+
 ## 上手
 
 ***everything*** in a Java program must be inside a ***class***.
@@ -43,21 +59,20 @@ To run it,
 javac YourProgram.java # 编译: java compile 编译，从高级语言->计算机能读懂的机器语言
 
 java YourProgram # 运行: run with JVM # 运行YourProgram.class这个类 # case matters in Java（大小写）
-# Note: YourProgram.java 会被理解成 YourProgram/java（后缀 vs Java中`.`的意思）
+# Note: 不是YourProgram.class [1]
 ```
 
-> 然而.java文件名需要与public class名一致，比如这里Hello.java和Hello2这个类就不match：
-> ```
-> hadoop@Machine:~/Desktop$ javac Hello.java
-> Hello.java:11: error: class Hello2 is public, should be declared in a file named Hello2.java
-> public class Hello2{
->        ^
-> 1 error
-> ```
+> 文件命名也不是随便叫的: .java文件名需要与源代码中public class名(如果有public class)一致
+
+> [1]  `**Could not find or load main class HelloWorldApp.class**`
+>
+> A common mistake made by beginner programmers is to try and run the `java` launcher on the `.class` file that was created by the compiler. For example, you'll get this error if you try to run your program with `java HelloWorldApp.class` instead of `java HelloWorldApp`. 
+>
+> **Remember, the argument is the *name of the class* that you want to use, *not* the filename.**
 
 In the Java programming language, all **source code** is first written in plain text files ending with the `.java` extension. Those source files are then **compiled** into `.class` files by the `javac` compiler. A `.class` file does not contain code that is native to your processor; it instead contains ***bytecodes* — the machine language of the Java Virtual Machine**[1](https://docs.oracle.com/javase/tutorial/getStarted/intro/definition.html#FOOT) (Java VM). **The `java` launcher tool then runs your application with an instance of the Java Virtual Machine.**
 
-source code     - - (`javac`) compiler - ->     bytecodes - - (`java`) into JVM 
+source code     - - (`javac`) compiler - ->     bytecodes - - (`java`) launcher tool, launch it into JVM 
 
 ![Figure showing MyProgram.java, compiler, MyProgram.class, Java VM, and My Program running on a computer.](Java Notes-pic/getStarted-compiler.gif)
 
@@ -101,11 +116,21 @@ Filename constrants:
 
 ​		file name == public class name + .java	
 
-​		e.g., `public class Hello{}` should have  `Hello.java` as filename
+​		e.g., `public class Hello{}` should have  `Hello.java` as filename [1]
 
 * if there's 0 public class,
 
   no constrant on file name
+
+> [1] .java文件名需要与public class名一致，比如这里Hello.java和Hello2这个类就不match：
+>
+> ```
+> hadoop@Machine:~/Desktop$ javac Hello.java
+> Hello.java:11: error: class Hello2 is public, should be declared in a file named Hello2.java
+> public class Hello2{
+>     ^
+> 1 error
+> ```
 
 
 
@@ -135,7 +160,7 @@ e.g., `java Cat` run the main method in class `Cat`
 
 #### The Java Platform
 
-A *platform* is the hardware or software environment in which a program runs. We've already mentioned some of the most popular platforms like Microsoft Windows, Linux, and Mac OS. **Most platforms can be described as a combination of the operating system and underlying hardware. The Java platform differs from most other platforms in that it's a software-only platform that runs on top of other hardware-based platforms.**
+**A *platform* is the hardware or software environment in which a program runs.** We've already mentioned some of the most popular platforms like Microsoft Windows, Linux, and Mac OS. *Most platforms can be described as a combination of the operating system and underlying hardware. The Java platform differs from most other platforms in that it's a software-only platform that runs on top of other hardware-based platforms.*
 
 **The Java platform has two components:**
 
@@ -176,15 +201,27 @@ The terms"Java Virtual Machine" and "JVM" mean a Virtual Machine for the Java pl
 
 #### 注释 Comment
 
-* 单行注释 // ...
-* 多行注释 /* ... */
-* Javadoc注释 /** ... */
+> 好习惯：先写注释（这个方法要做什么），再写代码
+
+* 单行注释 // text			The compiler ignores everything from // to the end of the line
+* 多行注释 /* text */       The compiler ignores everything from `/*` to `*/`.
+* Javadoc注释 /** documentation */
 
 > 注：多行注释，Javadoc注释 不可嵌套。
 >
-> 这一点在想要注释掉代码的时候需要特别注意：被注释的代码中如果已含有`*/`就会出问题
+> 这一点在想要注释掉代码的时候需要特别注意：被注释的代码中如果已含有`*/`就会出问题。建议用单行注释
 
 
+
+##### 单行、多行注释
+
+> 面向代码维护者的注释。
+
+通常解释程序为什么这么写，如何修改，注意点等
+
+##### Javadoc注释
+
+> 面向调用者的注释。类、方法的注释应使用Javadoc写
 
 Javadoc 能根据注释自动生成一系列网页（用户手册）
 
@@ -204,3 +241,55 @@ javadoc -d <dest_dir_for_HTML> <source file>
 # 比如 javadoc -d ~/Desktop/JavadocForThisFile Comment.java
 # 不需要手工创建JavadocForThisFile，输入dirname后他会帮我创建
 ```
+
+
+
+##### main函数
+The `main` method accepts a single argument: an array of elements of type `String`.
+
+​	public static void main(**String[] args**)
+
+This array is the mechanism through which the runtime system passes information to your application. For example:
+
+​	java *MyApp* *arg1* *arg2*
+
+Each string in the array is called a *command-line argument*. Command-line arguments let users affect the operation of the application without recompiling it. For example, a sorting program might allow the user to specify that the data be sorted in descending order with this command-line argument:
+
+​	-descending
+
+
+
+#### API
+​	System.out.println("Hello World!");
+
+uses the System class from the core library to print the "Hello World!" message to standard output. This library (also known as the "Application Programming Interface", or "API")
+
+
+
+#### Variables
+
+The Java programming language is **statically-typed**, which means that all variables must first be declared before they can be used. This involves stating the variable's type and name, as you've already seen:
+
+​	int gear = 1;
+
+Doing so tells your program that a field named "gear" exists, holds numerical data, and has an initial value of "1". 
+
+##### Data Types
+
+A variable's data type determines the values it may contain, plus the operations that may be performed on it.
+
+The **eight primitive data types** are: byte, short, int, long, float, double, boolean, and char. 
+
+The java.lang.String class represents character strings. 
+
+The compiler will assign a reasonable default value for fields (aka. class / instance variables) of the above types (8 primitive data types + String); for local variables, a default value is never assigned. 
+
+A literal is the source code representation of a fixed value. 
+
+An array is a container object that holds a fixed number of values of a single type. 
+
+* The length of an array is established when the array is created. 
+* After creation, its length is fixed.
+
+
+
