@@ -5,10 +5,20 @@ import java.net.URL;
 
 public class WebScraper {
 /**
-* Scrapes a web page of a given URL and prints it in console
+* Given a url from console, 
+* Scrapes a web page of that given URL, and 
+* prints it in console.
 */
+
     public static void main(String[] args) throws IOException {
-        URL url = new URL("https://www.baidu.com/");
+        // Read URL from console
+        System.out.print("Enter URL: ");
+        String urlString = System.console().readLine();
+
+        // Create URL object
+        URL url = new URL(urlString);
+
+        // Open connection and read contents
         BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
         String line;
         while ((line = reader.readLine()) != null) {
