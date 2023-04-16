@@ -2,6 +2,18 @@ Java
 
 https://docs.oracle.com/javase/tutorial/index.html
 
+
+
+# 方法
+
+建立代码与计算机的对应关系:
+
+​	e.g., 变量声明＼赋值等　＜－＞　计算机内存中...
+
+
+
+
+
 # 背景
 
 
