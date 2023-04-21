@@ -39,3 +39,36 @@ public class JavaTypesDemo {
   }
 
 }
+
+/* In Python, just
+b = 100
+s = 20000
+...
+c = 'A'
+b = True
+
+Remeber that, Python is both 
+	**strongly typed** 
+	**dynamically typed**  
+Strong typing means that variables do have a type and that the type matters when performing operations on a variable. 
+Dynamic typing means that the type of the variable is determined only during runtime. 
+Due to dynamic typing, in Python the same variable can have a different type at different times during the execution.
+
+Python has several built-in data types. The basic data types include:
+- **Integers** (int)
+- **Floating-point numbers** (float)
+- **Complex numbers** (complex)
+- **Strings** (str)
+- **Booleans** (bool)
+Python does not have a byte or short data type like Java does.
+*/
+
+
+/* In weakly typed languages, 
+variables can be implicitly coerced (converted into) to another type. 
+Examples of weakly typed languages: JavaScript and PHP.
+*/
+
+
+
+
