@@ -1,4 +1,6 @@
 public class JavaTypesDemo {
+// Java is **strongly typed** 强类型语言
+// 会根据数据类型给变量分配内存空间 memory is assigned according to the data type of a variable.
 
   public static void main(String[] args) {
   /* there are two categories of types in Java: 
@@ -67,6 +69,9 @@ Python does not have a byte or short data type like Java does.
 /* In weakly typed languages, 
 variables can be implicitly coerced (converted into) to another type. 
 Examples of weakly typed languages: JavaScript and PHP.
+
+In weakly typed languages, 
+memory is allocated based on the value of the variable.
 */
 
 
