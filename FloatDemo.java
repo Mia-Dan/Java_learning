@@ -65,6 +65,8 @@ public class FloatDemo {
 }
 
 /* For Python, 
+representations like 1.23e2 also works
+
 same thing would happen
 (Rounding errors in floating-point Arithmetic)
 >>> 8.1/3

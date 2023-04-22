@@ -2,9 +2,58 @@
 
 copy this:
 
-git log --author=Mia-Dan --pretty=tformat: --numstat --after="one week ago" | awk '{ add += $1; subs += $2 } END { printf "+%d, -%d, total = %d\n", add, subs, all }'
+git log --author=Mia-Dan --pretty=tformat: --numstat --after="one week ago" | awk '{ add += $1; subs += $2 } END { printf "+%d, -%d, total = %d\n", add, subs, add+subs }'
 
 \# in 7 days
+
+
+
+git log --author=Mia-Dan --pretty=tformat: --numstat --since="midnight" | awk '{ add += $1; subs += $2 } END { printf "+%d, -%d, total = %d\n", add, subs, add+subs }'
+
+\# today's
+
+
+
+
+```
+example
+
+since midnight
+
+35      11      FloatDemo.java
+41      0       FloatDemo.java
+0       0       ChangeChar.java
+0       0       Comment.java
+0       0       Hello.java
+3       1       Java Notes.md
+0       0       JavaTypesDemo.java
+0       0       OpPlusDemo.java
+0       0       PrimitiveTypeDemo.java
+0       0       Types.java
+0       0       WebScraper.java
+4       0       git.md
+
+---
+
+since yesterday (which would be 24 hours earlier)
+
+35      11      FloatDemo.java
+41      0       FloatDemo.java
+0       0       ChangeChar.java
+0       0       Comment.java
+0       0       Hello.java
+3       1       Java Notes.md
+0       0       JavaTypesDemo.java
+0       0       OpPlusDemo.java
+0       0       PrimitiveTypeDemo.java
+0       0       Types.java
+0       0       WebScraper.java
+4       0       git.md
+5       0       JavaTypesDemo.java
+33      0       JavaTypesDemo.java
+```
+
+.
 
 ```shell
 git log --author=Mia-Dan --pretty=tformat: --numstat | awk '{ add += $1; subs += $2 } END { printf "+%d, -%d, total = %d\n", add, subs, all }'
