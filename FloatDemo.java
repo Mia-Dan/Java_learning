@@ -21,7 +21,7 @@ public class FloatDemo {
         d = 1.23E2; // 123.0
         d = 1.23e-2; // 0.0123
 
-        // 2 Floating Point Representation & Rrecision 
+        // 2 Floating Point Representation & Precision 
 
         // 浮点数 = 符号位sign [1 bit] + 指数位exponent + 尾数位fraction
         // 尾数部分可能丢失（与机器的存储表示方式有关），损失精度
@@ -63,3 +63,10 @@ public class FloatDemo {
     }
     
 }
+
+/* For Python, 
+same thing would happen
+(Rounding errors in floating-point Arithmetic)
+>>> 8.1/3
+2.6999999999999997
+*/
