@@ -2,6 +2,10 @@
 
 copy this:
 
+git log --author=Mia-Dan --pretty=tformat: --numstat --after="one week ago" | awk '{ add += $1; subs += $2 } END { printf "+%d, -%d, total = %d\n", add, subs, all }'
+
+\# in 7 days
+
 ```shell
 git log --author=Mia-Dan --pretty=tformat: --numstat | awk '{ add += $1; subs += $2 } END { printf "+%d, -%d, total = %d\n", add, subs, all }'
 ```

@@ -8,7 +8,9 @@ https://docs.oracle.com/javase/tutorial/index.html
 
 建立代码与计算机的对应关系:
 
-​	e.g., 变量声明＼赋值等　＜－＞　计算机内存中...
+​	e.g., Java　变量声明＼赋值＼重新赋值等　＜－＞　计算机内存中... 变量名指向变量值，变量值修改
+
+​	Python ...
 
 
 
