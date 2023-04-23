@@ -18,7 +18,7 @@ public class CharDemo {
 
         // 2 representation & storage
         //  char is essentially integer
-        //  when output, it looks up `unicode` table
+        //  when input / output, it looks up `unicode` table
 
         char ch1 = 'a';
         System.out.println(ch1);
@@ -70,6 +70,38 @@ public class CharDemo {
         System.out.println(ch4); // 
         System.out.println((int)ch4); // 1
  
+
+        //  字符 <-> 码值（int）
+        //  存储：        字符'a' -> 码值97 -> 二进制... -> 存储
+        //  显示： 显示 <- 字符'a' <- 码值97 <- 二进制...
+
+        // 3 Encoding
+        // ASCII
+            // early standard by USA 
+            // 128 chars supported
+            // 1 byte (只用了7 bit)
+        // unicode
+            // ASCII -> unicode
+            // support more charaters, like Han
+            // 2 byte for all
+        // utf-8 🌟
+            // unicode -> utf-8 
+            // 大小可变编码
+            // 1 byte for EN chars, 3 bytes for Han chars
+            // 对英文不浪费，对汉字可表示的范围更广泛
+            // commonly use
+        // gbk
+            // support Han and ...
+            // 1 byte for EN chars, 2 bytes for Han chars（没utf-8支持的汉字多）
+            // 有时utf-8转gbk会报错，比如因为gbk支持的汉字比utf-8少
+        // gb2312
+            // more seldom in use than gbk
+        // big5
+            // 繁体中文，不支持简体中文
     }
     
 }
+
+
+
+
