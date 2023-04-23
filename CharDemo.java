@@ -11,13 +11,9 @@ public class CharDemo {
         //  while "" indicates String
 
         char ch = '中';
-        System.out.println(ch);
         ch = 'a'; 
-        System.out.println(ch);
         ch = 97; // 'a'
-        System.out.println(ch);
         ch = '\n';
-        System.out.println(ch);
 
 
         // 2 representation & storage
@@ -43,14 +39,13 @@ public class CharDemo {
 
         //   between char and char
         ch4 = 'b' 
-            + ('A' - 'a'); // which is diff from lower to upper case
-        System.out.println(ch4); // B
+            + ('A' - 'a') // which is diff from lower to upper case
+            ; // B
 
         //   uses
         ch4 = 'k'; 
         if (ch4 >= 'a' && ch4 <= 'z') { // if lower case
-            // ch4 = ch4 + ('A' - 'a'); // ERROR: ...
-            // incompatible types: possible lossy conversion from int to char
+            // ch4 = ch4 + ('A' - 'a'); // ERROR: incompatible types: possible lossy conversion from int to char
             ch4 = (char) (ch4 + ('A' - 'a')); // turn upper case
         }
         System.out.println(ch4); // K
@@ -67,8 +62,13 @@ public class CharDemo {
         //      2
         ch4 = (char) ('a' - 'A');
         ch4 = 'a' - 'A'; // works!
-        System.out.println(ch4); // (whitespace)
+        System.out.println(ch4); // 
         System.out.println((int)ch4); // 32
+
+        ch4 = (char) ('a' / 'A');
+        ch4 = 'a' / 'A'; // works!
+        System.out.println(ch4); // 
+        System.out.println((int)ch4); // 1
  
     }
     
