@@ -102,6 +102,52 @@ public class CharDemo {
     
 }
 
+/* Python version:
 
+TLDR;
+ord(): char -> int
+chr(): int -> char
+doesn't supprot underflow on chr()
+    e.g., ch4 = chr(ord('A') - ord('a')) would
+          raise ValueError: chr() arg not in range(0x110000)
+---
+
+>>> ch1 = "中"
+>>> print(ord(ch1))
+20013 
+# same, unicode
+
+---
+
+>>> int1 = 20013
+>>> print(chr(int1))
+中
+
+---
+
+>>> ch4 = 'k'
+>>> if 'a' <= ch4 <= 'z':
+...     ch4 = chr(ord(ch4) + (ord('A') - ord('a')))
+... 
+>>> print(ch4)
+K
+
+---
+
+>>> ch4 = chr(ord('A') - ord('a'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: chr() arg not in range(0x110000)
+# This is one thing that goes different,
+# instead of underflow, 
+# it does some sanity check
+
+---
+
+>>> ch4 = chr(ord('a') // ord('A'))
+>>> print(ord(ch4))
+1
+
+*/
 
 
