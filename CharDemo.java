@@ -7,8 +7,8 @@ public class CharDemo {
     public static void main(String[] args) {
 
         // 1 declaration & assignment
-        //  char constant is quoted by ''
-        //  while "" indicates String
+        //  char constant is quoted by `' '`
+        //  while `" "` indicates String
 
         char ch = '中';
         ch = 'a'; 
@@ -80,16 +80,19 @@ public class CharDemo {
             // early standard by USA 
             // 128 chars supported
             // 1 byte (只用了7 bit)
-        // unicode
-            // ASCII -> unicode
-            // support more charaters, like Han
-            // 2 byte for all
-        // utf-8 🌟
-            // unicode -> utf-8 
+        // Unicode
+            // ASCII -> Unicode 
+            // 兼容ASCII
+            // `uni` 统一。期望将世界上所有符号都包含在内。
+            // 不会出现乱码问题
+            // 2 bytes for any 最多能支持65536个字符
+        // UTF-8 🌟
+            // Unicode -> UTF-8 （为节约存储空间）
             // 大小可变编码
-            // 1 byte for EN chars, 3 bytes for Han chars
+            // 1~6 bytes for a char: 
+            //  1 byte for EN chars, 3 bytes for Han chars
             // 对英文不浪费，对汉字可表示的范围更广泛
-            // commonly use
+            // commonly use 是互联网使用最广泛的一种Unicode的实现方式
         // gbk
             // support Han and ...
             // 1 byte for EN chars, 2 bytes for Han chars（没utf-8支持的汉字多）
@@ -105,14 +108,16 @@ public class CharDemo {
 /* Python version:
 
 TLDR;
-ord(): char -> int
-chr(): int -> char
+ord(): String of len 1 (roughly, char) -> int 
+chr(): int -> String of len 1 (roughly, char) 
 doesn't supprot underflow on chr()
     e.g., ch4 = chr(ord('A') - ord('a')) would
           raise ValueError: chr() arg not in range(0x110000)
 ---
 
 >>> ch1 = "中"
+# String of length 1
+# both `' '` and `" "`, and `''' '''` would do in Python
 >>> print(ord(ch1))
 20013 
 # same, unicode
