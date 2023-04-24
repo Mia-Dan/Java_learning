@@ -12,6 +12,7 @@ public class BooleanDemo{
         isPass = false;
         // isPass = 1; // ERROR: incompatible types: int cannot be converted to boolean
         // isPass = (boolean) 1; // ERROR: incompatible types: int cannot be converted to boolean
+        // int num = isPass; // ERROR: incompatible types: boolean cannot be converted to int
 
         if(isPass){
             System.out.println("Pass!");
@@ -38,9 +39,17 @@ other values can be converted to bool
 ... 
 fail!
 
+---
+
 >>> is_pass = bool(1)
 >>> print(is_pass)
 True
+>>> is_pass = True
+>>> num = int(is_pass)
+>>> num
+1
+
+---
 
 in C
 other values like `0`, `1` is also supported
