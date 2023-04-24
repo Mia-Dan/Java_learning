@@ -16,6 +16,9 @@ public class OpPlusDemo{
 	System.out.println("hello" + 1 + 3); // hello13
 	System.out.println(1 + 3 + "hello"); // 4hello
 
+	char ch = 1 + 'a';
+	System.out.println(ch); // 'b'
+	// 注意这里'a'是char型的，本质是一个数；所以右边能得到int型，而非拼接的字符串
     }
 }
 
