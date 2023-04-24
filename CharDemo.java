@@ -33,8 +33,8 @@ public class CharDemo {
         //  ->
         //  can do operations like `+` on char
         //   between char and int
-        char ch4 = 'a' + 1;
-        System.out.println(ch4);
+        char ch4 = 'a' + 1; // Note: 不报错，RHS不是"a1"（原因见 3 AutoConvert
+        System.out.println(ch4); // 'b' 
         System.out.println((int)ch4); 
 
         //   between char and char
@@ -108,12 +108,24 @@ public class CharDemo {
 /* Python version:
 
 TLDR;
-ord(): String of len 1 (roughly, char) -> int 
-chr(): int -> String of len 1 (roughly, char) 
+doesn't have char, have str of len 1 instead
+ord(): (str of len 1) -> int 
+chr(): int -> (str of len 1) 
 doesn't supprot underflow on chr()
     e.g., ch4 = chr(ord('A') - ord('a')) would
           raise ValueError: chr() arg not in range(0x110000)
----
+Python doesn't have automatic type conversion,
+    -> doesn't have auto convert from str to int
+    e.g., 1 + 'a' would fail
+    it use `duck typing` instead
+        Duck typing in Python is an application of the duck test
+        (aka, if an object walks like a duck and quacks like a duck, 
+        (    then it must be a duck
+        to determine whether an object can be used for a particular purpose
+    With duck typing, an object's suitability is determined by the presence of certain methods and properties 
+        rather than its type
+
+--- 1
 
 >>> ch1 = "中"
 # String of length 1
@@ -152,6 +164,18 @@ ValueError: chr() arg not in range(0x110000)
 >>> ch4 = chr(ord('a') // ord('A'))
 >>> print(ord(ch4))
 1
+
+---
+
+>>> 'a'+1
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can only concatenate str (not "int") to str
+
+>>> 1+'a'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
 */
 
