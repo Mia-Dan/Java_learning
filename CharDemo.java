@@ -7,7 +7,7 @@ public class CharDemo {
     public static void main(String[] args) {
 
         // 1 declaration & assignment
-        //  char constant is quoted by `' '`
+        //  char constant is quoted by `' '`, can store 1 character only
         //  while `" "` indicates String
 
         char ch = '中';
