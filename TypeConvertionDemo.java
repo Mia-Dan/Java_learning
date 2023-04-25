@@ -95,3 +95,15 @@ public class TypeConvertionDemo{
 
 }
 
+/*
+Python doesn't have automatic type conversion,
+    e.g., 1 + 'a' would fail
+it use `duck typing` instead
+    Duck typing in Python is an application of the duck test
+    (aka, if an object walks like a duck and quacks like a duck, 
+    (    then it must be a duck
+    to determine whether an object can be used for a particular purpose
+With duck typing, an object's suitability is determined by the presence of certain methods and properties 
+    rather than its type
+*/
+
