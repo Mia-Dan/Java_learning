@@ -24,5 +24,15 @@ public class StringConvertionDemo {
         float num3 = Float.parseFloat(s5);
         long num4 = Long.parseLong(s5);
         System.out.println(num1 + " " + num2 + " " + num3 + " " + num4);
+
+        String s6 = "hello world";
+        int num5 = Integer.parseInt(s6);
+        /*
+        Exception in thread "main" java.lang.NumberFormatException: For input string: "hello world"
+            at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+            at java.lang.Integer.parseInt(Integer.java:580)
+            at java.lang.Integer.parseInt(Integer.java:615)
+            at StringConvertionDemo.main(StringConvertionDemo.java:29)
+        */
     }
 }
