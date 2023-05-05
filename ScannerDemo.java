@@ -18,5 +18,8 @@ public class ScannerDemo{
 
         System.out.println("How do you rate this system?");
         int rating = scanner.nextInt();   // convert to int, or raise exceptions
+        System.out.println(rating);
+        rating = Integer.parseInt(scanner.next()); // another way. String -> int
+        System.out.println(rating);
     }
 }
