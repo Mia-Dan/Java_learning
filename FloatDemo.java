@@ -1,3 +1,11 @@
+/**
+ * about float numbers 小数: `float`(单精度) and `double`(双精度)
+ * 1 Declarations & Assignment
+ * 2 Floating Point Representation & Precision 
+ *      浮点数 = 符号位sign [1 bit] + 指数位exponent + 尾数位fraction
+ *      小数【参与运算】后，尾数部分可能丢失（与机器的存储表示方式有关），损失精度，往往得到近似值
+ *      - 比较/判断等于时注意
+ */ 
 
 public class FloatDemo {
 
