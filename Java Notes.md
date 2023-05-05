@@ -201,15 +201,77 @@ The terms"Java Virtual Machine" and "JVM" mean a Virtual Machine for the Java pl
 
 ## 基础
 
+
+
+#### Java类的组织形式
+
+ 	--> package1 -->	interface	-->
+
+​							-->	classes		-->	fields
+
+​												  		-->	constructors	
+
+​												  		-->	methods						
+
+​							-->	exceptions															
+
+----> package2
+
+...
+
+#### Naming conventions
+
+| type           | convention                                                   | examples                                      |
+| -------------- | ------------------------------------------------------------ | --------------------------------------------- |
+| package        | Use only lowercase letters and digits (no underscores); Consecutive words are simply concatenated together. | com.example.deepspace✅ com.example.deepSpace❌ |
+| class          | UpperCamelCase. Typically nouns or noun phrases.             | ImmutableList                                 |
+| method         | lowerCamelCase. Typically verbs or verb phrases.             | sendMessage                                   |
+| constant names | UPPER_SNAKE_CASE                                             | TAX_RATE                                      |
+|                |                                                              |                                               |
+
+For **acronyms** or unusual constructs like "IPv6" or "iOS" 
+
+Beginning with the prose form of the name:
+
+1. Convert the phrase to plain ASCII and remove any apostrophes. For example, "Müller's algorithm" might become "Muellers algorithm".
+2. Divide this result into words, splitting on spaces and any remaining punctuation (typically hyphens).
+   - *Recommended:* if any word already has a conventional camel-case appearance in common usage, split this into its constituent parts (e.g., "AdWords" becomes "ad words"). Note that a word such as "iOS" is not really in camel case *per se*; it defies *any* convention, so this recommendation does not apply.
+3. Now lowercase **everything** (including acronyms), then uppercase only the first character of:
+   - ... each word, to yield *upper camel case*, or
+   - ... each word except the first, to yield *lower camel case*
+4. Finally, join all the words into a single identifier.
+
+Note that the casing of the original words is almost entirely disregarded. Examples:
+
+| Prose form              | Correct             | Incorrect           |
+| ----------------------- | ------------------- | ------------------- |
+| "XML HTTP request"      | `XmlHttpRequest`    | `XMLHTTPRequest`    |
+| "new customer ID"       | `newCustomerId`     | `newCustomerID`     |
+| "inner stopwatch"       | `innerStopwatch`    | `innerStopWatch`    |
+| "supports IPv6 on iOS?" | `supportsIpv6OnIos` | `supportsIPv6OnIOS` |
+| "YouTube importer"      | `YouTubeImporter`   |                     |
+
+
+
 #### Java 源码 src
 
 在哪里：
 
-进入jdk目录（可以用`which java`找到jdk安装路径），找到`src.zip`，解压即可
+进入jdk目录（Ubuntu可以用`which java`找到jdk安装路径），找到`src.zip`，解压即可
 
-
+> How to 找到jdk安装路径：
+>
+> * Ubuntu可以用`which java`
+> * Mac可以用`/usr/libexec/java_home -V`
+>   * 返回：/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home
 
 源码中有详细的javadoc注释
+
+`src.zip`解压后得到：
+
+![image-20230505163402719](Java Notes-pic/image-20230505163402719.png)
+
+// java.util库，Scanner类。`import java.util.Scanner;`
 
 
 
