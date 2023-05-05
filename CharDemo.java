@@ -1,6 +1,15 @@
 /** 
- * details about type char,
+ * Details about type char,
  * and character encoding.
+ * 
+ * 1 declaration & assignment
+ *      whatever quoted by `' '` should be char constant: SHOULD ONLY store 1 character 
+ * 2 representation & storage
+ *      essentially integer, support ops +-*➗, encoded with unicode 
+ *      char ch = 'a' + 1; works √ with auto convertion
+ *      ch = ch + ('A' - 'a'); fails X with ERROR: incompatible types: possible lossy conversion from int to char
+ *      char ch = someInteger; fails X with ERROR: same
+ * 
  */
 public class CharDemo {
 
