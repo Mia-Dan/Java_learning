@@ -1,5 +1,14 @@
-/** 三元运算
- * statement ? p : q
+/** ternary operator 三元运算
+ * The conditional operator ?:, aka the ternary operator, takes three operands
+ * It is a shorthand way of writing an if-else statement.
+ *  
+ * `condition ? a : b`
+ * Examples are about: 
+ *      getting max between two
+ *      getting max between three
+ * 
+ * In Java, `condition ? a : b`
+ * In Python, `a if condition else b`
  */
 
 public class TernaryOperatorExercise{
@@ -28,3 +37,11 @@ public class TernaryOperatorExercise{
 
     }
 }
+
+/* Python version:
+
+max_a_b = a if a > b else b
+
+max_a_b_c = (a if a > b else b) if (a if a > b else b) > c else c
+
+ */
