@@ -14,6 +14,21 @@ public class ScannerDemo{
         System.out.println("Enter password: ");
         String pwd = scanner.next();
 
+        String correctUsr = "admin";
+        String correctPwd = "123";
+
+        // The problem with your code was that you were using the `!=` operator to compare two strings. 
+        // The `!=` operator compares the memory addresses of the two strings, which is not what you want.
+        // In Java, you should use the `equals()` method instead.  
+        System.out.println();
+        if(!usr.equals(correctUsr)){ // how to compare Strings
+            System.out.println("User not exists");
+        } else if (!pwd.equals(correctPwd)) {
+            System.out.println("Wrong password");
+        } else{
+            System.out.println("Login succeed");
+        }
+
         System.out.println("\nWhat has just been entered: \n" + usr + "\n" + pwd); 
 
         System.out.println("How do you rate this system?");
