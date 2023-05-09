@@ -23,11 +23,13 @@ public class HighwayRobber{
 
         int moneyInHand = 100_000;
         int roadCrossed = 0;
-        while (moneyInHand >= 1_000) { // notice: >= 1_000 rather than >= 0. 交不出1_000时已经不让通过了
-            if (moneyInHand > 50_000) 
-                moneyInHand *= 0.95;
-            else 
+        while (true) { 
+            if (moneyInHand <= 1_000)
+                break; // 钱不够，不让过 
+            else if (moneyInHand <= 50_000) 
                 moneyInHand -= 1_000;
+            else 
+                moneyInHand *= 0.95;
             roadCrossed++;
         }
         System.out.println("最多可以经过 " + roadCrossed + " 个路口");
