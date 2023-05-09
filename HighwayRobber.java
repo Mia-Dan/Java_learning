@@ -22,17 +22,13 @@ public class HighwayRobber{
 
         int moneyInHand = 100_000;
         int roadCrossed = 0;
-        while (true) {
+        while (moneyInHand >= 1_000) {
             System.out.println(moneyInHand);
-            if (moneyInHand > 50_000) {
+            if (moneyInHand > 50_000) 
                 moneyInHand *= 0.95;
-                roadCrossed++;
-            }
-            else if (moneyInHand >= 1_000){
+            else 
                 moneyInHand -= 1_000;
-                roadCrossed++;
-            } else
-                break;
+            roadCrossed++;
         }
         System.out.println("最多可以经过 " + roadCrossed + " 个路口");
 
