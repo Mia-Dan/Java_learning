@@ -3,7 +3,11 @@
  * break, continue, return
  * 
  * - break with / without labels | label指定退到哪一层 (with Python equvalent)
+ *      - break 跳出这层循环
  * - continue with / without labels 
+ *      - continue 在本层循环中，提前结束本次 并 进入下一次
+ * - return
+ *      - return 跳出这个方法
  * - NOTE: label后面需要紧跟循环声明(for/...)
  * - comparison between: break, continue, return
  */
