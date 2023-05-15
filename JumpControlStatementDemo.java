@@ -1,15 +1,22 @@
 /**
- * Demonstate of following control statement: 
- * break, continue, return
+ * Demonstate of jump control statement (跳转控制语句) in Java: 
+ *     statements that allow the program to jump to another part of the program
+ * in java: break, continue, return
  * 
- * - break with / without labels | label指定退到哪一层 (with Python equvalent)
- *      - break 跳出这层循环
- * - continue with / without labels 
- *      - continue 在本层循环中，提前结束本次 并 进入下一次
- * - return
- *      - return 跳出这个方法
+ * - break 跳出这层循环/这层switch
+ *      - break with / without labels | label指定退到哪一层 (with Python equvalent)
+ * - continue 在本层循环中，提前结束本次iteration 并 进入下一次
+ *      - continue with / without labels 
+ * - return 跳出这个方法，并 返回一个值
+ * 
  * - NOTE: label后面需要紧跟循环声明(for/...)
+ * 
  * - comparison between: break, continue, return
+ * 
+ *  In Java, jump control statements include break, continue, and return statements. 
+ * The break statement is used to exit a loop or switch statement. 
+ * The continue statement is used to skip the current iteration of a loop and move on to the next iteration. 
+ * The return statement is used to exit a method and return a value.
  */
 
 public class ControlStatementDemo{
