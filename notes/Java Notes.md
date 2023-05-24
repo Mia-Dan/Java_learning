@@ -2,6 +2,8 @@ Java
 
 https://docs.oracle.com/javase/tutorial/index.html
 
+TODO 并入`.java`文件的链接
+
 
 
 # 方法
@@ -388,3 +390,46 @@ Java中所有数都是有符号的。
 逻辑右移 aka 无符号右移动 a >>> 1    符号位填充0，空出的高位补0。
 
 位与 a & b，位或 a | b，位异或 a ^ b，位取反 ~a
+
+
+
+### control flow
+
+#### switch 
+
+fall through [see](./appendix/switch - fallthrough.md)
+
+
+
+## packages
+
+
+
+#### 导入jar包的代码如何运行
+
+从IDEA/Eclipse：设置将.jar加到build path设置中
+
+从命令行：通过classpath添加路径，注意java运行时需要加入Check.class所在目录
+
+```shell
+➜  src git:(master) ✗ javac -classpath ../lib/mysql-connector-java-8.0.15.jar Check.java
+➜  src git:(master) ✗ java -classpath ../lib/mysql-connector-java-8.0.15.jar:. Check
+```
+
+排错周围尝试 [see also](./appendix/jdbc with MySQL.md)：
+
+```shell
+➜  src git:(master) ✗ java -classpath ../lib/mysql-connector-java-8.0.15.jar Check
+# Error: Could not find or load main class Check 
+
+➜  src git:(master) ✗ java Check
+java.lang.ClassNotFoundException: com.mysql.cj.jdbc.Driver
+# 说明还是需要设置classpath的
+
+➜  src git:(master) ✗ java -classpath ../lib/mysql-connector-java-8.0.15.jar AAA
+Error: Could not find or load main class AAA
+# 说明第二条代码中，他可能没找到文件？但是：
+➜  src git:(master) ✗ ls
+Check.class Check.java
+```
+

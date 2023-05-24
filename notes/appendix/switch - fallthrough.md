@@ -25,3 +25,6 @@ writing low-level code (such as parsers for binary encodings)**, as `switch` is 
 outweigh its flexibility. For example, in the following code, the many `break` statements make it unnecessarily **verbose**, and this visual noise often masks hard to debug errors, where missing `break` statements would mean accidental fall through.
 
 Design implications of Java’s switch statements and switch expressions https://blogs.oracle.com/javamagazine/post/java-switch-statements-expressions
+
+
+
