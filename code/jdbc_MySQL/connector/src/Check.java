@@ -22,17 +22,21 @@ public class Check {
                 "root", "root1234"
                 );
             // `jdbc:mysql://`: 协议，通过 jdbc 的方式连接 mysql
-            // `localhost`: 主机，可以是 ip 地址
-            // `3306`: MySQL 监听的端口
+            // `localhost`: 主机，可以是 ip 地址（比如要连接到其他机器上了）
+            // `3306`: MySQL 默认监听的端口
             // mysql 的连接本质是 socket 连接
-            // `testdb`: name of database (in MySQL DBMS)
+            // `testdb`: name of database (in MySQL DBMS)，MySQL这个DBMS会管理多个db
+
             // `root`: username of database
             // `root1234`: password of database
 
             System.out.println("Login success ");
             
             //3. 执行 sql
-            // statement 用于执行静态 SQL 语句并返回其生成的结果的对象
+            // statement 用于
+            //   1. 发送到MySQL并执行静态 SQL 语句，并
+            //   2. 从MySQL返回其生成的结果的对象
+            // 执行SQL语句，靠的是statement对象。
             Statement statement = connection.createStatement();
             String sql = "select * from designation";
             ResultSet resultSet = statement.executeQuery(sql);
@@ -47,8 +51,8 @@ public class Check {
             }
 
             // 5. 关闭连接资源
-            resultSet.close();
-            statement.close();
+            resultSet.close(); // ？%%%
+            statement.close(); // 如果不关闭，每次有程序都建立一个连接并保持，终有一日新的程序会连接不上
             connection.close();
 
         }
