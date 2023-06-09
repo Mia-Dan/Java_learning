@@ -1,13 +1,13 @@
 /**
  * Lab on MySQL Database using Java
+ * -  CRUD
+ * -  with statement (vs. preparedStatement)
  */
 
 import java.sql.*;
 import com.mysql.cj.jdbc.Driver;
 
-
-
-public class Lab {
+public class CrudBasicLab {
 
     public static void main(String arg[])
     {
