@@ -31,6 +31,10 @@ public class CrudPreparedStatementLab {
             System.out.println("Login success ");
             
 
+
+            // SELECT
+            System.out.println("\nSELECT");
+
             //3.1 PreparedStatement-1
             String sql;
             sql = "select * from designation where code=?";
@@ -50,8 +54,7 @@ public class CrudPreparedStatementLab {
             String title;
 
 
-            // 4. select. 执行 select 语句使用 preparedStatement.executeQuery(sql)
-            System.out.println("\nSELECT");
+            // 4. select. 执行 select 语句使用 preparedStatement.executeQuery()
             // ResultSet resultSet = statement.executeQuery(sql); // 查询语句，返回查询结果
             // ResultSet resultSet = preparedStatement.executeQuery(sql); // X 不需要String sql，否则不认识
             ResultSet resultSet = preparedStatement.executeQuery(); // 查询语句，返回查询结果
@@ -65,57 +68,51 @@ public class CrudPreparedStatementLab {
             }
 
 
-            // // 3.2 insert
-            // System.out.println("\nINSERT");
-            // sql = "insert into designation values(null, 'Alice')";
-            // int rowsInserted = statement.executeUpdate(sql); // dml语句，返回的就是影响行数
-            // System.out.println(rowsInserted > 0 ? "Alice - successed" : "Alice - failed");
 
-            // // show (3.1 select)
-            // sql = "select * from designation";
-            // resultSet = statement.executeQuery(sql);
-            // while (resultSet.next()) {
-            //     code = resultSet.getInt("code");
-            //     title = resultSet.getString("title").trim();
-            //     System.out.println("Code : " + code + " Title : " + title);
-            // }
+            // INSERT
+            System.out.println("\nINSERT");
+
+            //3.1 PreparedStatement-2
+            // String sql;
+            sql = "insert into designation values(null, ?)";
+            // PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement = connection.prepareStatement(sql);
+            // Scanner scanner = new Scanner(System.in);
+            scanner = new Scanner(System.in);
+            System.out.println(sql); // 提示语
+            // String userInput = scanner.nextLine();
+            userInput = scanner.nextLine();
+
+            preparedStatement.setString(1, userInput); // start from 1. 1 for 1st '?'
+
+            // 输出用variable
+            // int code;
+            // String title;
+
+            // 4. insert. 执行 select 语句使用 preparedStatement.executeUpdate()
+            int rowsInserted = preparedStatement.executeUpdate(); 
+            System.out.println(rowsInserted > 0 ? "insert - successed" : "insert - failed");
+
+
+            // show (3.1 select)
+            sql = "select * from designation";
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery(sql);
+            while (resultSet.next()) {
+                code = resultSet.getInt("code");
+                title = resultSet.getString("title").trim();
+                System.out.println("Code : " + code + " Title : " + title);
+            }
+
 
 
             // // 3.3 modify
-            // System.out.println("\nMODIFY");
-            // sql = "UPDATE designation SET code=3 WHERE title='Alice'";
-            // int rowsUpdated = statement.executeUpdate(sql); // dml语句，返回的就是影响行数
-            // System.out.println(rowsUpdated > 0 ? "modify Alice - successed" : "modify Alice - failed");
-
-            // // show (3.1 select)
-            // sql = "select * from designation";
-            // resultSet = statement.executeQuery(sql);
-            // while (resultSet.next()) {
-            //     code = resultSet.getInt("code");
-            //     title = resultSet.getString("title").trim();
-            //     System.out.println("Code : " + code + " Title : " + title);
-            // }
-
-
             // // 3.4 delete
-            // System.out.println("\nDELETE");
-            // sql = "delete from designation where title = 'Alice'";
-            // int rowsDeleted = statement.executeUpdate(sql); // 如果是 dml语句，返回的就是影响行数
-            // System.out.println(rowsDeleted > 0 ? "title = 'bbb' delete - successed" : "title = 'bbb' delete - failed");
-
-            // // show (3.1 select)
-            // sql = "select * from designation";
-            // resultSet = statement.executeQuery(sql);
-            // while (resultSet.next()) {
-            //     code = resultSet.getInt("code");
-            //     title = resultSet.getString("title").trim();
-            //     System.out.println("Code : " + code + " Title : " + title);
-            // }
-
+            // `dml` similar to insert
 
 
             // 5. 关闭连接资源
-            resultSet.close(); // ？%%%
+            resultSet.close(); 
             preparedStatement.close(); // 如果不关闭，每次有程序都建立一个连接并保持，终有一日新的程序会连接不上
             connection.close();
 
@@ -138,73 +135,6 @@ public class CrudPreparedStatementLab {
 
 // About SQL
 
-//➜  bin mysql -u root -p
-//Enter password: 
-//Welcome to the MySQL monitor.  Commands end with ; or \g.
-//Your MySQL connection id is 13
-//Server version: 8.0.15 MySQL Community Server - GPL
-//
-//Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
-//
-//Oracle is a registered trademark of Oracle Corporation and/or its
-//affiliates. Other names may be trademarks of their respective
-//owners.
-//
-//Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-//
-//mysql> show databases
-//    -> ;
-//+--------------------+
-//| Database           |
-//+--------------------+
-//| information_schema |
-//| mysql              |
-//| performance_schema |
-//| sys                |
-//| testdb             |
-//+--------------------+
-//5 rows in set (0.00 sec)
-//
-//mysql> use testdb;
-//Reading table information for completion of table and column names
-//You can turn off this feature to get a quicker startup with -A
-//
-//Database changed
-//mysql> show tables
-//    -> ;
-//+------------------+
-//| Tables_in_testdb |
-//+------------------+
-//| aaaStrings       |
-//+------------------+
-//1 row in set (0.00 sec)
-//
-//mysql> create table designation
-//    -> (
-//    ->     code int primary key auto_increment,
-//    ->     title char(35) not null unique
-//    -> );
-//Query OK, 0 rows affected (0.03 sec)
-//
-//mysql> show tables
-//    -> ;
-//+------------------+
-//| Tables_in_testdb |
-//+------------------+
-//| aaaStrings       |
-//| designation      |
-//+------------------+
-//2 rows in set (0.00 sec)
-//
-//mysql> show tables;
-//+------------------+
-//| Tables_in_testdb |
-//+------------------+
-//| aaaStrings       |
-//| designation      |
-//+------------------+
-//2 rows in set (0.01 sec)
-//
 //mysql> describe designation
 //    -> ;
 //+-------+----------+------+-----+---------+----------------+
