@@ -6,7 +6,7 @@ import java.io.IOException;
 // 字节流
 public class InputStream{
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException, FileNotFoundException{
         String filePath = "lab.txt";
 
         byte[] buffer = new byte[2]; //一次读取2个字节(bytes). 在utf-8下对应两个字符 
