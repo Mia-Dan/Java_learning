@@ -407,6 +407,8 @@ fall through [see](./appendix/switch - fallthrough.md)
 
 #### 导入jar包的代码如何运行
 
+Good practice：在项目文件夹下新建`lib`文件夹，把所有依赖的`jar`包都丢到该文件夹下
+
 从IDEA/Eclipse：设置将.jar加到build path设置中
 
 从命令行：通过classpath添加路径，注意java运行时需要加入Check.class所在目录
