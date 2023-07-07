@@ -43,3 +43,30 @@ public class Server{
     }
     
 }
+
+
+// visit from browser
+// TODO why the page won't work?
+
+// OUTPUT:
+// This is a GET request from browser
+
+// server listening at port 7004...
+// Server | socket =class java.net.Socket
+// GET / HTTP/1.1
+// Host: 127.0.0.1:7004
+// Cookie: csrftoken=3v7vRG3TuLHuYWhsIccSEFwgkiplUHX53rHI4UgoR8w3FJrZn3GcCgDWRGfnSRQt
+// Connection: keep-alive
+// Upgrade-Insecure-Requests: 1
+// Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+// User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.2 Safari/605.1.15
+// Accept-Language: en-gb
+// DNT: 1
+// Accept-Encoding: gzip, deflate
+
+
+// Server exiting
+
+
+
+
