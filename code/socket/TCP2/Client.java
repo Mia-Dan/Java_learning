@@ -3,12 +3,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.InputStream;
 
-// TODEBUG
-// Client | socket =class java.net.Socket
-// Exception in thread "main" java.net.SocketException: Socket is closed
-//     at java.net.Socket.getInputStream(Socket.java:903)
-//     at Client.main(Client.java:20)
-
 public class Client{
     public static void main(String[] args) throws IOException{
 
@@ -21,7 +15,7 @@ public class Client{
         // OutputStream usage TODO
         outStream.write("Hi, Lain".getBytes()); 
 
-        outStream.close();
+        socket.shutdownOutput();
 
         // b. Receive from Server
         // bind socket's inputstream to inStream
@@ -33,7 +27,7 @@ public class Client{
             System.out.println(new String(buffer, 0, readLen));//根据读取到的实际长度，显示内容. }
         }
 
-        // outStream.close();
+        outStream.close();
         inStream.close();
         socket.close();
 

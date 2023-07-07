@@ -5,14 +5,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 
-// TODEBUG
-// server listening at port 7004...
-// Server | socket =class java.net.Socket
-// hello, this is Mia
-// Exception in thread "main" java.net.SocketException: Socket is closed
-//     at java.net.Socket.getOutputStream(Socket.java:943)
-//     at Server.main(Server.java:27)
-    
 public class Server{
     public static void main(String[] args) throws IOException{
 
@@ -31,7 +23,6 @@ public class Server{
         while ((readLen = inStream.read(buffer)) != -1) {
             System.out.println(new String(buffer, 0, readLen));//根据读取到的实际长度，显示内容. }
         }
-        inStream.close();
 
 
         // b. Send to Client
@@ -40,14 +31,14 @@ public class Server{
         // OutputStream usage
         outStream.write("Hi, Mia (from server Lain)".getBytes()); 
 
+        socket.shutdownOutput();
 
-        // inStream.close();
+        inStream.close();
         outStream.close();
         socket.close();
         serverSocket.close();
 
         System.out.println("Server exiting");
-
 
     }
     
