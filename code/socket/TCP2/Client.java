@@ -13,9 +13,13 @@ public class Client{
         // bind socket's outputstream to inStream
         OutputStream outStream = socket.getOutputStream();
         // OutputStream usage TODO
-        outStream.write("Hi, Lain".getBytes()); 
+        outStream.write("Hi, Lain~ ".getBytes()); 
 
-        socket.shutdownOutput();
+        outStream.write("This is a second sentence. ".getBytes()); 
+        outStream.write("\n\nAs long as Mia didn't tell Lain 'all sent' \n\tsocket.shutdownOutput(); \nLain would always be listening Mia to continue".getBytes()); 
+
+// TRY TOGGLE THIS LINE OF COMMENT 🌟
+        //socket.shutdownOutput();
 
         // b. Receive from Server
         // bind socket's inputstream to inStream
